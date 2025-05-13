@@ -1,0 +1,35 @@
+/* Top Bar */
+.top-bar {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  color: var(--light-text);
+  padding: 8px 0;
+}
+
+.top-bar .container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--light-text);
+  border-radius: 50%;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}

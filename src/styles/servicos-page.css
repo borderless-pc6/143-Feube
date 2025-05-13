@@ -1,0 +1,131 @@
+/* Serviços Page Styles */
+.servicos-page {
+  padding: 80px 0;
+  background-color: var(--background-light);
+  min-height: 80vh;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.page-title:after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 2px;
+}
+
+.servicos-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.servico-item {
+  background-color: var(--light-text);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.servico-item:hover {
+  transform: translateY(-5px);
+}
+
+.servico-item:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+}
+
+.servico-item h2 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.servico-item p {
+  color: #555;
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+}
+
+.servico-item ul {
+  margin-bottom: 25px;
+  padding-left: 5px;
+}
+
+.servico-item ul li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 25px;
+  list-style-type: none;
+}
+
+.servico-item ul li:before {
+  content: "✓";
+  color: var(--primary-color);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.servico-item .btn-primary {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .servicos-page {
+    padding: 60px 0;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .servico-item {
+    padding: 25px;
+  }
+
+  .servico-item h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .servicos-page {
+    padding: 40px 0;
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+  }
+
+  .servico-item {
+    padding: 20px;
+  }
+
+  .servico-item h2 {
+    font-size: 1.3rem;
+  }
+}
