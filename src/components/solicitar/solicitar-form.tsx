@@ -6,12 +6,56 @@ import { useState } from "react"
 import { useSearchParams } from "next/navigation"
 import Link from "next/link"
 
+// Tipos para os arquivos
+interface FileWithName extends File {
+  name: string;
+}
+
+// Interface para os dados do formulário
+interface FormDataType {
+  // Dados Pessoais
+  nome: string;
+  cpf: string;
+  dataNascimento: string;
+  rg: string;
+  orgaoEmissor: string;
+  email: string;
+  telefone: string;
+  cep: string;
+  endereco: string;
+  numero: string;
+  complemento: string;
+  bairro: string;
+  cidade: string;
+  estado: string;
+
+  // Dados Acadêmicos
+  instituicao: string;
+  curso: string;
+  matricula: string;
+  nivelEnsino: string;
+  turno: string;
+  anoLetivo: string;
+  dataInicio: string;
+  dataTermino: string;
+
+  // Documentos
+  fotoAluno: FileWithName | null;
+  comprovanteMatricula: FileWithName | null;
+  documentoIdentidade: FileWithName | null;
+
+  // Plano e Pagamento
+  plano: string;
+  formaPagamento: string;
+  aceitaTermos: boolean;
+}
+
 export default function SolicitarForm() {
   const searchParams = useSearchParams()
   const planoSelecionado = searchParams.get("plano") || "padrao"
 
   const [currentStep, setCurrentStep] = useState(1)
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormDataType>({
     // Dados Pessoais
     nome: "",
     cpf: "",
@@ -513,7 +557,7 @@ export default function SolicitarForm() {
                   className="file-input"
                 />
                 <div className="file-name">
-                  {formData.fotoAluno ? (formData.fotoAluno as any).name : "Nenhum arquivo selecionado"}
+                  {formData.fotoAluno ? formData.fotoAluno.name : "Nenhum arquivo selecionado"}
                 </div>
               </div>
 
@@ -538,7 +582,7 @@ export default function SolicitarForm() {
                 />
                 <div className="file-name">
                   {formData.comprovanteMatricula
-                    ? (formData.comprovanteMatricula as any).name
+                    ? formData.comprovanteMatricula.name
                     : "Nenhum arquivo selecionado"}
                 </div>
               </div>
@@ -564,7 +608,7 @@ export default function SolicitarForm() {
                 />
                 <div className="file-name">
                   {formData.documentoIdentidade
-                    ? (formData.documentoIdentidade as any).name
+                    ? formData.documentoIdentidade.name
                     : "Nenhum arquivo selecionado"}
                 </div>
               </div>
